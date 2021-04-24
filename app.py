@@ -9,7 +9,7 @@ from resources.store import Store,StoreList
 from db import db
 
 app= Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI']= os.environ.get('DATABASE_URL','sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False #stops the flask-sqlalchemy modification tracker as the same working in SQLAlchemy
 app.secret_key= 'ankan.bera'  #should not be visible to others while deploying
 api= Api(app)

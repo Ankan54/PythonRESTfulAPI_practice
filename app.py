@@ -1,3 +1,5 @@
+import os
+
 from flask_restful import Api
 from flask import Flask
 from flask_jwt import JWT

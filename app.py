@@ -15,9 +15,6 @@ app.secret_key= 'ankan.bera'  #should not be visible to others while deploying
 api= Api(app)
 jwt= JWT(app, authenticate, identity)  #creates a new endpoint '/auth'
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 #instead of @app.route decorator
 api.add_resource(Item,'/item/<string:name>')
